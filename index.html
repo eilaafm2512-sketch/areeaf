@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أرياف | Areeaf - الميداليات الخشبية اليدوية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --burgundy: #6b1d2f;
+            --burgundy-hover: #521422;
+            --cream: #fbf9f5;
+            --beige: #f3ede2;
+            --beige-dark: #e5d8c5;
+            --text-dark: #332621;
+            --text-muted: #6e5e57;
+            --accent-gold: #c59b27;
+            --white: #ffffff;
+            --shadow: 0 8px 30px rgba(107, 29, 47, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar */
+        .announcement-bar {
+            background-color: var(--burgundy);
+            color: var(--beige);
+            text-align: center;
+            padding: 8px 15px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header / Navbar */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+            border-bottom: 1px solid var(--beige);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background-color: var(--burgundy);
+            color: var(--cream);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--burgundy);
+            line-height: 1;
+        }
+
+        .logo-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--burgundy);
+        }
+
+        .cart-icon-btn {
+            background: var(--beige);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+            color: var(--burgundy);
+        }
+
+        .cart-icon-btn:hover {
+            background-color: var(--burgundy);
+            color: var(--white);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -3px;
+            right: -3px;
+            background-color: var(--burgundy);
+            color: var(--white);
+            font-size: 0.75rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            border: 2px solid var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--beige) 0%, var(--cream) 100%);
+            padding: 80px 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            color: var(--burgundy);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--burgundy);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 10px 20px rgba(107, 29, 47, 0.2);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--burgundy-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(107, 29, 47, 0.3);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border: 8px solid var(--white);
+            object-fit: cover;
+        }
+
+        /* Products Section */
+        .products-section {
+            padding: 90px 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--burgundy);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border: 1px solid var(--beige);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .product-img-wrapper {
+            height: 240px;
+            background-color: var(--beige);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--burgundy);
+        }
+
+        .add-to-cart-btn {
+            background-color: var(--beige);
+            color: var(--burgundy);
+            border: none;
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: var(--burgundy);
+            color: var(--white);
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: var(--beige);
+            padding: 80px 25px;
+            margin-top: 40px;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-container p {
+            font-size: 1.15rem;
+            color: var(--text-dark);
+            max-width: 800px;
+            margin: 20px auto 0;
+            line-height: 1.8;
+        }
+
+        /* Cart Drawer */
+        .cart-drawer-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .cart-drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            max-width: 420px;
+            height: 100%;
+            background: var(--white);
+            z-index: 2001;
+            transform: translateX(-100%);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.15);
+        }
+
+        .cart-drawer.active {
+            transform: translateX(0);
+        }
+
+        .cart-header {
+            padding: 20px 25px;
+            border-bottom: 1px solid var(--beige);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--cream);
+        }
+
+        .cart-header h3 {
+            color: var(--burgundy);
+            font-size: 1.3rem;
+        }
+
+        .close-cart-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px 25px;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--beige);
+            align-items: center;
+        }
+
+        .cart-item-img {
+            width: 65px;
+            height: 65px;
+            border-radius: 10px;
+            object-fit: cover;
+            background-color: var(--beige);
+        }
+
+        .cart-item-details {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+        }
+
+        .cart-item-price {
+            color: var(--burgundy);
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .cart-footer {
+            padding: 25px;
+            border-top: 1px solid var(--beige);
+            background-color: var(--cream);
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .whatsapp-checkout-btn {
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .whatsapp-checkout-btn:hover {
+            background-color: #1eb857;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--burgundy);
+            color: var(--cream);
+            padding: 40px 25px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement-bar">
+        ✨ توصيل سريع لجميع ولايات سلطنة عُمان 🇴🇲 | هدايا خشبية يدوية فاخرة
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">أ</div>
+                <div class="logo-text">
+                    <span class="logo-title">أرياف | Areeaf</span>
+                    <span class="logo-sub">صُنع بحب في عُمان</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#about">عن أرياف</a></li>
+                </ul>
+            </nav>
+            <button class="cart-icon-btn" onclick="toggleCart()">
+                🛒
+                <span class="cart-badge" id="cartCount">0</span>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>ميداليات خشبية يدوية تُحاكي ذوقك الرفيع</h1>
+                <p>نصنع لك هدايا وميداليات خشبية فاخرة تُحفر بالاسم والعبارات الخاصة بحرفية ودقة عالية في سلطنة عُمان.</p>
+                <a href="#products" class="btn-primary">تصفّح المنتجات ➔</a>
+            </div>
+            <div class="hero-image-wrapper">
+                <svg class="hero-img" viewBox="0 0 400 300" style="background:#e5d8c5; border-radius: 20px;">
+                    <rect width="100%" height="100%" fill="#f3ede2"/>
+                    <circle cx="200" cy="130" r="70" fill="#6b1d2f" opacity="0.1"/>
+                    <rect x="140" y="80" width="120" height="120" rx="15" fill="#8c6d58"/>
+                    <circle cx="200" cy="110" r="8" fill="#e5d8c5"/>
+                    <text x="200" y="155" font-family="Tajawal" font-size="20" fill="#ffffff" text-anchor="middle" font-weight="bold">أرياف</text>
+                    <path d="M200 60 L200 80" stroke="#c59b27" stroke-width="4"/>
+                    <circle cx="200" cy="50" r="12" fill="none" stroke="#c59b27" stroke-width="4"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <h2 class="section-title">تشكيلتنا المميزة</h2>
+            <p class="section-subtitle">اختر تصميمك المفضل وسنقوم بحفره وتجهيزه لك بكل حب</p>
+        </div>
+
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <svg width="100%" height="100%" viewBox="0 0 300 240">
+                        <rect width="100%" height="100%" fill="#f3ede2"/>
+                        <rect x="90" y="60" width="120" height="120" rx="20" fill="#6e473b"/>
+                        <circle cx="150" cy="85" r="8" fill="#f3ede2"/>
+                        <text x="150" y="135" font-family="Tajawal" font-size="22" fill="#f3ede2" text-anchor="middle" font-weight="bold">الاسم</text>
+                        <circle cx="150" cy="35" r="15" fill="none" stroke="#c59b27" stroke-width="4"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">ميدالية الاسم الكلاسيكية</h3>
+                    <p class="product-desc">ميدالية من خشب الطبيعي محفورة بدقة فائقة بالاسم أو الكلمة التي تختارها.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">2.500 ر.ع.</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('ميدالية الاسم الكلاسيكية', 2.500)">إضافة +</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <svg width="100%" height="100%" viewBox="0 0 300 240">
+                        <rect width="100%" height="100%" fill="#f3ede2"/>
+                        <polygon points="150,50 210,110 150,170 90,110" fill="#8c5a47"/>
+                        <text x="150" y="118" font-family="Tajawal" font-size="18" fill="#ffffff" text-anchor="middle">شعار</text>
+                        <circle cx="150" cy="30" r="12" fill="none" stroke="#c59b27" stroke-width="4"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">ميدالية الأشكال الهندسة</h3>
+                    <p class="product-desc">تصميم عصري مميز بأشكال هندسية أنيقة يناسب الاستخدام اليومي والمفاتيح.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">3.000 ر.ع.</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('ميدالية الأشكال الهندسة', 3.000)">إضافة +</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <svg width="100%" height="100%" viewBox="0 0 300 240">
+                        <rect width="100%" height="100%" fill="#f3ede2"/>
+                        <circle cx="120" cy="120" r="45" fill="#a06e52"/>
+                        <circle cx="180" cy="120" r="45" fill="#6e473b"/>
+                        <text x="150" y="125" font-family="Tajawal" font-size="16" fill="#ffffff" text-anchor="middle">طقم</text>
+                        <circle cx="150" cy="40" r="12" fill="none" stroke="#c59b27" stroke-width="4"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">طقم ثنائي الهدايا</h3>
+                    <p class="product-desc">ميداليتان خشبية متناسقتان للأزواج والأصدقاء مع حفر أسماء أو تاريخ خاص.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">5.000 ر.ع.</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('طقم ثنائي الهدايا', 5.000)">إضافة +</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <svg width="100%" height="100%" viewBox="0 0 300 240">
+                        <rect width="100%" height="100%" fill="#f3ede2"/>
+                        <rect x="90" y="70" width="120" height="100" rx="10" fill="#6b1d2f"/>
+                        <text x="150" y="128" font-family="Tajawal" font-size="20" fill="#c59b27" text-anchor="middle" font-weight="bold">VIP</text>
+                        <circle cx="150" cy="40" r="12" fill="none" stroke="#c59b27" stroke-width="4"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">ميدالية أرياف الفاخرة</h3>
+                    <p class="product-desc">إصدار فاخر من خشب الماهوجني الداكن مع لمسات ذهبية وتغليف هدايا أنيق.</p>
+                    <div class="product-bottom">
+                        <span class="product-price">4.500 ر.ع.</span>
+                        <button class="add-to-cart-btn" onclick="addToCart('ميدالية أرياف الفاخرة', 4.500)">إضافة +</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <h2 class="section-title">عن مشروع أرياف | Areeaf</h2>
+            <p>نحن مشروع عُماني متخصص في صناعة الميداليات والهدايا الخشبية المصنوعة يدويًا بشغف وعناية بالغة. نؤمن بأن أجمل الهدايا هي تلك التي تحمل طابعاً شخصياً ودفئاً خشبياً يصمد مع الوقت. كل قطعة تصنع في "أرياف" تروي حكاية خاصة بكم.</p>
+        </div>
+    </section>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>سلة التسوق 🛍️</h3>
+            <button class="close-cart-btn" onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: var(--text-muted); margin-top: 40px;">السلة فارغة حالياً</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>المجموع الكلي:</span>
+                <span id="cartTotal">0.000 ر.ع.</span>
+            </div>
+            <button class="whatsapp-checkout-btn" onclick="checkoutWhatsApp()">
+                إرسال الطلب عبر الواتساب 💬
+            </button>
+        </div>
+    </div>
+
+    <a href="https://wa.me/968984857" target="_blank" class="floating-wa" title="تواصل معنا عبر الواتساب">
+        💬
+    </a>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © مشروع أرياف - سلطنة عُمان 🇴🇲</p>
+    </footer>
+
+    <script>
+        let cart = [];
+
+        function toggleCart() {
+            document.getElementById('cartDrawer').classList.toggle('active');
+            document.getElementById('cartOverlay').classList.toggle('active');
+        }
+
+        function addToCart(name, price) {
+            const existing = cart.find(item => item.name === name);
+            if(existing) {
+                existing.qty++;
+            } else {
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+            toggleCart();
+        }
+
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cartItems');
+            const cartCount = document.getElementById('cartCount');
+            const cartTotal = document.getElementById('cartTotal');
+
+            let totalQty = 0;
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); margin-top: 40px;">السلة فارغة حالياً</p>';
+            } else {
+                cartItemsContainer.innerHTML = cart.map(item => {
+                    totalQty += item.qty;
+                    totalPrice += item.price * item.qty;
+                    return `
+                        <div class="cart-item">
+                            <div class="cart-item-details">
+                                <div class="cart-item-title">${item.name}</div>
+                                <div class="cart-item-price">${(item.price * item.qty).toFixed(3)} ر.ع. (العدد: ${item.qty})</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            cartCount.innerText = totalQty;
+                cartTotal.innerText = totalPrice.toFixed(3) + ' ر.ع.';
+        }
+
+        function checkoutWhatsApp() {
+            if(cart.length === 0) {
+                alert('السلة فارغة! قم بإضافة بعض المنتجات أولاً.');
+                return;
+            }
+
+            let message = "مرحباً أرياف 🌿، أود طلب المنتجات التالية:\n\n";
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.qty;
+                total += itemTotal;
+                message += `${index + 1}. ${item.name}\n   العدد: ${item.qty}\n   السعر: ${itemTotal.toFixed(3)} ر.ع.\n\n`;
+            });
+
+            message += `المجموع الكلي: ${total.toFixed(3)} ر.ع.\n\nمن فضلك زودني بالتفاصيل لتأكيد الطلب والحفر.`;
+
+            const phone = "968984857";
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>
